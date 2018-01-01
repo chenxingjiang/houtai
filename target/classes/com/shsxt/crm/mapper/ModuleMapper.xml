@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shsxt.crm.dao.ModuleDao"> 
+    <select id="queryAllsModuleDtos" resultType="moduleDto">
+		SELECT
+			id,
+			parent_id AS pId,
+			module_name AS NAME
+		FROM
+			t_module
+		WHERE
+			is_valid = 1
+    </select>
+</mapper>

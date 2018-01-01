@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shsxt.crm.dao.CusDevPlanDao"> 
+   
+   <sql id="cus_dev_plan_column">
+      id,plan_item as planItem,plan_date planDate,create_date as createDate,update_date as updateDate,
+      exe_affect as exeAffect,sale_chance_id as saleChanceId,is_valid as isValid
+   </sql>
+
+   <select id="queryCusDevPlansByParams" parameterType="cusDevPlanQuery" resultType="cusDevPlan">
+        select <include refid="cus_dev_plan_column"/>
+        from t_cus_dev_plan
+        <where>
+           is_valid=1  and sale_chance_id=#{saleChanceId}
+        </where>
+   </select>
+</mapper>
