@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsxt.crm.dao.CustomerRepriDao" >
+
+
+   <select id="CustomerReprievesByLossId" parameterType="int" resultType="customerReprieve">
+      select id,measure,loss_id as lossId,create_date as createDate,update_date as updateDate
+      from t_customer_reprieve
+      where is_valid=1 and loss_id=#{lossId}
+   </select>
+</mapper>
